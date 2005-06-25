@@ -54,7 +54,7 @@
  *	Local Variables
  ****************************************************************************/
 /** @added by Guido Heumer */
-InputDriverRec SPACEORB = {
+_X_EXPORT InputDriverRec SPACEORB = {
         1,
         "spaceorb",
         NULL,
@@ -153,7 +153,11 @@ TearDownProc( pointer p )
 }
 
 /* was before: XF86ModuleData spaceorbModuleData = { &VersionRec, SetupProc, TearDownProc }; */
-XF86ModuleData spaceorbModuleData = { &VersionRec, SPACEORBSetupProc, TearDownProc };
+_X_EXPORT XF86ModuleData spaceorbModuleData = {
+    &VersionRec,
+    SPACEORBSetupProc,
+    TearDownProc
+};
 
 #endif /* XFree86LOADER */
 
