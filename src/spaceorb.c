@@ -26,6 +26,10 @@
  */
 /* $XFree86: xc/programs/Xserver/hw/xfree86/input/spaceorb/spaceorb.c,v 1.12 2001/10/28 03:33:58 tsi Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 #define _SPACEORB_C_
 /*****************************************************************************
  *	Standard Headers
