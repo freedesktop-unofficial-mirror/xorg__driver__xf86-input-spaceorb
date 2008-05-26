@@ -107,7 +107,9 @@ static const char *reqSymbols[] = {
         "xf86CollectInputOptions",
         "xf86ErrorFVerb",
         "xf86FindOptionValue",
+#if GET_ABI_MAJOR(ABI_XINPUT_VERSION) < 3
         "xf86GetMotionEvents",
+#endif
         "xf86GetVerbosity",
         "xf86MotionHistoryAllocate",
         "xf86NameCmp",
@@ -337,7 +339,10 @@ DeviceInit (DeviceIntPtr dev)
     return !Success;
   }
 
-  if (InitValuatorClassDeviceStruct (dev, 6, xf86GetMotionEvents,
+  if (InitValuatorClassDeviceStruct (dev, 6,
+#if GET_ABI_MAJOR(ABI_XINPUT_VERSION) < 3
+				     xf86GetMotionEvents,
+#endif
 				     pInfo->history_size, Absolute) == FALSE)
     {
       ErrorF ("Unable to allocate SPACEORB ValuatorClassDeviceStruct\n");
